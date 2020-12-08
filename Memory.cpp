@@ -1,12 +1,13 @@
 #include "Memory.h"
 using namespace std;
 
-/*void Address(int n, Student students) {
-	cout << "Адрес каждой структуры студента в памяти: " << endl;
-	for (int i = n - 1; i >= 0; --i) {
-		cout << students + i << " ";
-	}
-}*/
+//void PrintAddress(Student* students, int size) {
+//	cout << "Адрес каждой структуры студента в памяти: " << endl;
+//	for (Student* ptr = students; ptr <= &students[size - 1];ptr++) {
+//		//for (int i =0; i < size; i++)
+//		cout << "#["  << "]: address = " << ptr << endl;
+//	}
+//}
 
 int main() {
 
@@ -34,17 +35,50 @@ int main() {
 	}
 	Student firstStudent = *students;
 
-	cout << "Размер статического массива: " << sizeof(Students) / sizeof(Students[0]) << endl;
+	cout << "Размер статического массива : " << sizeof(Students) / sizeof(Students[0]) << endl;
+	cout << "Размер массива (память): " << sizeof(Students) << endl;
 	cout << "Размер динамического массива: " << n << endl;
 
-	cout << "Адрес каждой структуры студента в памяти: " << endl;
+	cout << "Адрес каждого студента в памяти: " << endl;
 	for (int i = n - 1; i >= 0; --i) {
 		cout << students + i << " ";
 	}
 	cout << endl << "Величина, на которую изменяется значение указателя при инкременте: " << sizeof(students) << endl;
 
-	cout << "Адреса полей структуры: " << endl; // Дописать (уточнить)
-	// дописать 8.	Создать структуру с таким же набором полей, но другой последовательностью. Сравнить размеры структур. Вывести на консоль адреса каждого поля для обеих структур. Сделать выводы.
+	//cout << "Адреса полей структуры: " << endl; // Дописать (уточнить)
+	//PrintAddress(students, n);
 
+	//=====================================================================================================================================//
+	const int amount_of_students_2 = 10;
+	Student_2 Students_2[amount_of_students] = {};
+	int m;
+	
+	cout << "Введите количество студентов для нового проверочного массива";
+	cin >> m;
+	Student_2* students_2 = new Student_2[m]; //динамический массив 
+	for (int i = 0; i < m; i++) {
+		cout << "Имя: ";
+		cin >> students_2->name_2;
+		cout << "Фамилия: ";
+		cin >> students_2->surname_2;
+		cout << "Факультет: ";
+		cin >> students_2->faculty_2;
+		cout << "Группа: ";
+		cin >> students_2->group_2;
+		cout << "Email: ";
+		cin >> students_2->email_2;
+		cout << endl;
+	}
+	Student_2 firstStudent_2 = *students_2;
+	cout << "Размер статического массива : " << sizeof(Students_2) / sizeof(Students_2[0]) << endl;
+	cout << "Размер нового проверочного массива(память): " << sizeof(Students_2) << endl;
+	cout << "Размер динамического массива: " << m << endl;
+
+	cout << "Адрес каждого студента в памяти: " << endl;
+	for (int i = m - 1; i >= 0; --i) {
+		cout << students_2 + i << " ";
+	}
+	cout << endl << "Величина, на которую изменяется значение указателя при инкременте: " << sizeof(students_2) << endl;
+	//PrintAddress(students, m);
 	return 0;
 }
